@@ -15,6 +15,9 @@ public class A2U_test : MonoBehaviour
     public float jumpForce = 3f;
     public bool isGrounded = true;
     
+    //摩擦力
+    public float friction = 0.5f;
+    
     //对物体增加最大速度限制
     public float maxSpeed = 10f;
     
@@ -47,7 +50,11 @@ public class A2U_test : MonoBehaviour
             Move(data);
         }
         
-
+        //无论在不在地上，都有摩擦力，如果速度大于0，就减小速度
+        if (rb.velocity.magnitude > 0)
+        {
+            rb.velocity -= rb.velocity.normalized * friction * Time.deltaTime;
+        }
        
         
         //最大速度限制
@@ -63,6 +70,17 @@ public class A2U_test : MonoBehaviour
 
     void Move(Vector3 data)
     {
+        //帮我写个死区，就是说如果data的值小于50，就不要动
+        if (Mathf.Abs(data.x) < 50)
+        {
+            data.x = 0;
+        }
+        if (Mathf.Abs(data.y) < 50)
+        {
+            data.y = 0;
+        }
+        
+        
         rb.AddForce(0,0,data.x * sensitivity * Time.deltaTime, ForceMode.VelocityChange); //VelocityChange是一个力的模式,作用在物体上的力会立即改变物体的速度，而不受物体的质量影响
         rb.AddForce(data.y * sensitivity * Time.deltaTime, 0, 0, ForceMode.VelocityChange);
         Debug.Log(isGrounded);
