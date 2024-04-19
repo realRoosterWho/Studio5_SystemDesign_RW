@@ -2,7 +2,7 @@ import serial
 import json
 
 # 读取串口/dev/cu.usbmodem13201
-ser = serial.Serial('/dev/cu.usbmodem13201', 9600)
+ser = serial.Serial('/dev/cu.usbmodem1201', 9600)
 
 #循环地打印读取的串口，直到按下ESC
 while True:
