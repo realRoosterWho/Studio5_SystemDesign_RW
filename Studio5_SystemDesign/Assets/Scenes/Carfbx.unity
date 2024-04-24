@@ -123,6 +123,50 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &212733216
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 212733218}
+  - component: {fileID: 212733217}
+  m_Layer: 0
+  m_Name: InputHandler
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &212733217
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 212733216}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 739b7483e9abe4038a909ff06ac8ddab, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!4 &212733218
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 212733216}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -2.0631795, y: 3.1445684, z: -3.0885782}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &309816135
 GameObject:
   m_ObjectHideFlags: 0
@@ -300,6 +344,7 @@ GameObject:
   - component: {fileID: 437922660}
   - component: {fileID: 437922659}
   - component: {fileID: 437922662}
+  - component: {fileID: 437922663}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -510,6 +555,24 @@ MonoBehaviour:
       enableFptlForForwardOpaque: 0
       enableBigTilePrepass: 0
       isFptlEnabled: 0
+--- !u!114 &437922663
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 437922658}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7522dd16cdcff4a2182091f111fad2a3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  axisMapping: {x: 2, y: 3, z: 1}
+  invertX: 0
+  invertY: 1
+  invertZ: 0
+  gyroThreshold: 8
+  recoverySpeed: 5
 --- !u!1 &523609340
 GameObject:
   m_ObjectHideFlags: 0
@@ -3398,3 +3461,4 @@ SceneRoots:
   - {fileID: 992515303}
   - {fileID: 1532698621}
   - {fileID: 410806698}
+  - {fileID: 212733218}
