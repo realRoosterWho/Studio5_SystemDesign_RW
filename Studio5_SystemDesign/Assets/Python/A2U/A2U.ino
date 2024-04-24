@@ -2,9 +2,9 @@
 #include <SPI.h>
 #include <SD.h>
 
-#define SW 8
-#define joy_x A0
-#define joy_y A3
+#define SW 2
+#define joy_x A6
+#define joy_y A7
 
 void setup() {
   // Initialize serial communication

@@ -1,33 +1,60 @@
 import serial
+import serial.tools.list_ports
 import json
 
-# 读取串口/dev/cu.usbmodem13201
-ser = serial.Serial('/dev/cu.usbmodem1201', 9600)
+def validate_data(line):
+    parts = line.split(',')
+    return len(parts) == 15
 
-#循环地打印读取的串口，直到按下ESC
-while True:
+def read_from_port(ser):
+    while True:
+        try:
+            line = ser.readline().decode().strip()
+            if validate_data(line):
+                parts = line.split(',')
+                data = {
+                    'x': float(parts[0]),
+                    'y': float(parts[1]),
+                    'z': float(parts[2]),
+                    'Trigger': float(parts[3]),
+                    'Menu': float(parts[4]),
+                    'Down': float(parts[5]),
+                    'Up': float(parts[6]),
+                    'Grip': float(parts[7]),
+                    'acc_x': float(parts[8]),
+                    'acc_y': float(parts[9]),
+                    'acc_z': float(parts[10]),
+                    'temp': float(parts[11]),
+                    'gyr_x': float(parts[12]),
+                    'gyr_y': float(parts[13]),
+                    'gyr_z': float(parts[14])
+                }
+                print(json.dumps(data))
+                with open('data.json', 'w') as f:
+                    json.dump(data, f)
+            else:
+                print("Invalid data received: ", line)
+        except KeyboardInterrupt:
+            break
+
+ports = serial.tools.list_ports.comports()
+
+# 黑名单串口
+blacklist = ["/dev/cu.wlan-debug", "/dev/cu.MovsMacBookAir", "/dev/cu.Bluetooth-Incoming-Port"]
+
+for port in ports:
+    # 如果串口在黑名单中，跳过
+    if port.device in blacklist:
+        continue
     try:
-        # 读取串口数据
-        line = ser.readline().decode().strip()
-        # 将数据分割为三个部分
-        parts = line.split(',')
-        # Check if parts contains exactly three elements
-        if len(parts) == 3:
-            # 创建一个字典，将数据转换为JSON格式
-            data = {
-                'x': float(parts[0]),
-                'y': float(parts[1]),
-                'z': float(parts[2])
-            }
-            # 打印JSON数据
-            print(json.dumps(data))
-            # 打开一个文件用于写入数据
-            with open('data.json', 'w') as f:
-                # 将JSON数据写入文件
-                json.dump(data, f)
-        else:
-            print("Invalid data received: ", line)
-    except KeyboardInterrupt:
-        break
-
-ser.close()
+        ser = serial.Serial(port.device, 9600)
+        if ser.is_open:
+            line = ser.readline().decode().strip()
+            if validate_data(line):
+                print(f"Reading from {port.device}")
+                read_from_port(ser)
+            else:
+                print(f"Data from {port.device} does not match expected format")
+            ser.close()
+    except serial.SerialException:
+        print(f"Could not open port {port.device}")
