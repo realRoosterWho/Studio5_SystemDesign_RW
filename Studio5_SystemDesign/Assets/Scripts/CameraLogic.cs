@@ -23,6 +23,15 @@ public class CameraLogic : MonoBehaviour
     [SerializeField]
     private float recoverySpeed = 1f; // 控制摄像机回复到初始角度的速度
 
+    [SerializeField]
+    private bool enableMovement = false; // 是否通过遥感的x, y来完成前进后退和左右移动
+
+    [SerializeField]
+    private float movementSpeed = 0.01f; // 控制移动的速度
+    
+    [SerializeField]
+    private Transform main; // 父物体
+
     // Start is called before the first frame update
     void Start()
     {
@@ -33,6 +42,7 @@ public class CameraLogic : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        
         // 从 InputHandler 获取输入数据
         InputData data = InputHandler.Instance.GetInputData();
 
@@ -60,5 +70,12 @@ public class CameraLogic : MonoBehaviour
         }
 
         transform.rotation = Quaternion.Euler(currentRotation);
+
+        // 如果启用了移动，根据遥感的x, y来完成前进后退和左右移动
+        if (enableMovement && data != null)
+        {
+            Vector3 direction = new Vector3(data.x, 0, data.y);
+            transform.Translate(direction * Time.deltaTime * movementSpeed, Space.Self);
+        }
     }
 }

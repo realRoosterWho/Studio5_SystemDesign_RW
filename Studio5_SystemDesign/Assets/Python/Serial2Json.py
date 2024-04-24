@@ -1,6 +1,7 @@
 import serial
 import serial.tools.list_ports
 import json
+import os
 
 def validate_data(line):
     parts = line.split(',')
@@ -32,16 +33,27 @@ def read_from_port(ser):
                 print(json.dumps(data))
                 with open('data.json', 'w') as f:
                     json.dump(data, f)
+                send_json_to_port(ser, 'data_out.json')  # 修改这一行
             else:
                 print("Invalid data received: ", line)
         except KeyboardInterrupt:
             break
+
+def send_json_to_port(ser, json_file):
+    if os.path.getsize(json_file) > 0:  # 检查文件是否为空
+        with open(json_file, 'r') as f:
+            data = json.load(f)
+            ser.write(json.dumps(data).encode())
+            print(f"Sent data to {ser.name}， data: {json.dumps(data)}")
+    else:
+        print(f"{json_file} is empty. Skipping...")
 
 ports = serial.tools.list_ports.comports()
 
 # 黑名单串口
 blacklist = ["/dev/cu.wlan-debug", "/dev/cu.MovsMacBookAir", "/dev/cu.Bluetooth-Incoming-Port"]
 
+# 在主循环中
 for port in ports:
     # 如果串口在黑名单中，跳过
     if port.device in blacklist:

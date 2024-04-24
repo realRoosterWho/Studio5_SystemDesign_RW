@@ -23,6 +23,13 @@ public class InputData
     public float gyr_z;
 }
 
+public class OutputData
+{
+    public float r;
+    public float g;
+    public float b;
+}
+
 public class InputHandler : MonosingletonTemp<InputHandler>
 {
     // Start is called before the first frame update
@@ -55,4 +62,20 @@ public class InputHandler : MonosingletonTemp<InputHandler>
             return null;
         }
     }
+    
+    //写一个函数，用于将收到的数据写入文件，写到Application.dataPath + "/Python/data_out.json"里面
+    public void WriteData(OutputData data)
+    {
+        // Convert the OutputData object to a JSON string
+        string json = JsonUtility.ToJson(data);
+        //Debug
+        Debug.Log(json);
+        // Call the WriteData method from the InputHandler class to write the JSON string to a file
+        File.WriteAllText(Application.dataPath + "/Python/data_out.json", json);
+    }
+    
+    //public OutputData
+    
+    
+    
 }

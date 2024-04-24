@@ -20,6 +20,8 @@ public class Light_Manager : MonosingletonTemp<Light_Manager>
     // 一个列表，用于存储所有的LightStrip_Material_Logic
     public List<LightStrip_Material_Logic> lightStripList = new List<LightStrip_Material_Logic>();
 
+    public OutputData m_outputdata;
+
     // 添加一些Serialize的变量，用于统一调整所有灯和灯带的属性
     [SerializeField] public float lightEmission = 30000;
     [SerializeField] public Color lightStripColor = Color.white;
@@ -68,7 +70,7 @@ public class Light_Manager : MonosingletonTemp<Light_Manager>
                 SetAllLightStrips(Color.green, 18f, true);
                 break;
         }
-        
+
         UpdateText();
     }
 
@@ -88,6 +90,7 @@ public class Light_Manager : MonosingletonTemp<Light_Manager>
         {
             // 使用lightStripColor和lightStripEmissionIntensity变量来统一调整所有灯带的颜色和强度
             lightStrip.m_color = lightStripColor;
+            WriteLightColorToJson(lightStripColor);
             lightStrip.m_emissionintensity = lightStripEmissionIntensity;
             lightStrip.useGradient = lightStripUseGradient;
         }
@@ -107,6 +110,7 @@ public class Light_Manager : MonosingletonTemp<Light_Manager>
         foreach (var lightStrip in lightStripList)
         {
             lightStrip.m_color = color;
+            WriteLightColorToJson(color);
             lightStrip.m_emissionintensity = emissionIntensity;
             lightStrip.useGradient = useGradient;
         }
@@ -115,5 +119,27 @@ public class Light_Manager : MonosingletonTemp<Light_Manager>
     void UpdateText()
     {
         text.text = m_currentMode.ToString();
+    }
+    
+    //写一个函数，调用InputHandler里面的函数，用于将当前的灯的颜色数据写入json文件
+    public void WriteLightColorToJson(Color datalightStripColor)
+    {
+        
+        // 检查m_outputdata是否为null，如果为null，初始化它
+        if (m_outputdata == null)
+        {
+            m_outputdata = new OutputData();
+        }
+        
+        // Convert the color to a format that can be written to JSON
+        //先映射成0,255，并且round一下，再赋值
+        m_outputdata.r = Mathf.Round(datalightStripColor.r * 255);
+        m_outputdata.g = Mathf.Round(datalightStripColor.g * 255);
+        m_outputdata.b = Mathf.Round(datalightStripColor.b * 255);
+
+    
+
+        // Call the WriteData method from the InputHandler class to write the JSON string to a file
+        InputHandler.Instance.WriteData(m_outputdata);
     }
 }
