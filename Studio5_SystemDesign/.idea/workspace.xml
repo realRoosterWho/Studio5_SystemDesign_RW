@@ -6,11 +6,18 @@
   <component name="ChangeListManager">
     <list default="true" id="059937b2-bef8-4f42-8c0c-cb02b91aae76" name="Changes" comment="light strip serial out okay">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Python/A2U/Default/Default.ino" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Python/A2U/Default/Default.ino" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Python/Serial2Json.py" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Python/Serial2Json.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Python/data.json" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Python/data.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Python/data_out.json" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Python/data_out.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Game1_Run.unity" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Game1_Run.unity.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Game1_Run/Skybox Profile.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Game1_Run/Skybox Profile.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/CameraLogic.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/CameraLogic.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Coin_Logic.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Coin_Logic.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/EventManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/EventManager.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/Light_Manager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Light_Manager.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/PlayerLogic.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/PlayerLogic.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/deathzone_Logic.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/deathzone_Logic.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/TagManager.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/TagManager.asset" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -69,7 +76,7 @@
       <workItem from="1712317298642" duration="638000" />
       <workItem from="1712411091634" duration="3419000" />
       <workItem from="1712477015342" duration="2312000" />
-      <workItem from="1713972682817" duration="9466000" />
+      <workItem from="1713972682817" duration="11128000" />
     </task>
     <task id="LOCAL-00001" summary="project before import">
       <option name="closed" value="true" />
@@ -91,6 +98,6 @@
     <option name="LAST_COMMIT_MESSAGE" value="project before import" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/Studio5_SystemDesign$Serial2Json.coverage" NAME="Serial2Json Coverage Results" MODIFIED="1714053083169" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Assets/Python" />
+    <SUITE FILE_PATH="coverage/Studio5_SystemDesign$Serial2Json.coverage" NAME="Serial2Json Coverage Results" MODIFIED="1714062412352" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Assets/Python" />
   </component>
 </project>

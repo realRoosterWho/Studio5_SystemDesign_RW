@@ -29,6 +29,7 @@ public class Light_Manager : MonosingletonTemp<Light_Manager>
     
     [SerializeField] public Color lightColor = Color.white;
     [SerializeField] public bool lightStripUseGradient = false;
+    [SerializeField] public bool isTextOn = true;
     
     [SerializeField] private TextMeshPro text;
     [SerializeField] private LightMode m_currentMode;
@@ -141,6 +142,15 @@ public class Light_Manager : MonosingletonTemp<Light_Manager>
 
     void UpdateText()
     {
+        if (isTextOn)
+        {
+            text.gameObject.SetActive(true);
+        }
+        else
+        {
+            text.gameObject.SetActive(false);
+        }
+        
         text.text = m_currentMode.ToString();
     }
     

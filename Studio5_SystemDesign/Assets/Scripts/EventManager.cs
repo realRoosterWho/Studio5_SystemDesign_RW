@@ -66,7 +66,7 @@ public class EventManager : MonosingletonTemp<EventManager>
         }
     }
 
-    public void TriggerEvent(string eventName, GameEventArgs eventArgs)
+    public void TriggerEvent(string eventName, GameEventArgs eventArgs = null)
     {
         Action<GameEventArgs> thisEvent = null;
         if (eventDictionary.TryGetValue(eventName, out thisEvent))

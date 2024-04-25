@@ -35,6 +35,12 @@ public class PlayerLogic : MonoBehaviour
         //自动按照速度前进
         controller.Move(transform.forward * speed * Time.deltaTime);
         
+        //如果按下G健，重新加载场景，用Application
+        if (data != null && data.Grip == 1.0)
+        {
+            Application.LoadLevel(Application.loadedLevel);
+        }
+        
     }
     
     // 重置玩家位置

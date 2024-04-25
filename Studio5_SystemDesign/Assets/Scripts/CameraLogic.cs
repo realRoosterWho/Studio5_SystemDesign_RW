@@ -28,6 +28,10 @@ public class CameraLogic : MonoBehaviour
 
     [SerializeField]
     private float movementSpeed = 0.01f; // 控制移动的速度
+
+	//一个布尔，用于说明摄像头锁定
+    [SerializeField]
+	private bool isLocked = false;
     
     [SerializeField]
     private Transform main; // 父物体
@@ -37,6 +41,11 @@ public class CameraLogic : MonoBehaviour
     {
         currentRotation = transform.rotation.eulerAngles;
         initialRotation = currentRotation;
+
+		//锁定鼠标
+        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
+
     }
 
     // Update is called once per frame
@@ -52,7 +61,7 @@ public class CameraLogic : MonoBehaviour
             currentRotation = initialRotation;
         }
         // 如果数据不为 null，调整摄像机的旋转
-        else if (data != null && (Mathf.Abs(data.gyr_x) > gyroThreshold || Mathf.Abs(data.gyr_y) > gyroThreshold || Mathf.Abs(data.gyr_z) > gyroThreshold))
+        else if (data != null && !isLocked && (Mathf.Abs(data.gyr_x) > gyroThreshold || Mathf.Abs(data.gyr_y) > gyroThreshold || Mathf.Abs(data.gyr_z) > gyroThreshold))
         {
             // 使用陀螺仪的数据来调整摄像机的旋转
             Vector3 gyroData = new Vector3(data.gyr_x, data.gyr_y, data.gyr_z);
