@@ -24,7 +24,7 @@ RenderSettings:
   m_AmbientEquatorColor: {r: 0.114, g: 0.125, b: 0.133, a: 1}
   m_AmbientGroundColor: {r: 0.047, g: 0.043, b: 0.035, a: 1}
   m_AmbientIntensity: 1
-  m_AmbientMode: 4
+  m_AmbientMode: 0
   m_SubtractiveShadowColor: {r: 0.42, g: 0.478, b: 0.627, a: 1}
   m_SkyboxMaterial: {fileID: 0}
   m_HaloStrength: 0.5
@@ -2694,9 +2694,9 @@ MonoBehaviour:
   - {fileID: 7844310007873955799}
   - {fileID: 4396605556998567433}
   - {fileID: 9178812416339355451}
-  lightEmission: 30000
-  lightStripColor: {r: 1, g: 0.4292453, b: 0.4292453, a: 1}
-  lightStripEmissionIntensity: 25
+  lightEmission: 0
+  lightStripColor: {r: 1, g: 0.2038269, b: 0, a: 1}
+  lightStripEmissionIntensity: 28
   lightColor: {r: 1, g: 0.932978, b: 0.5235849, a: 1}
   lightStripUseGradient: 0
   text: {fileID: 1532698619}

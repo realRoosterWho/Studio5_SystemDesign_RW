@@ -42,9 +42,17 @@ def read_from_port(ser):
 def send_json_to_port(ser, json_file):
     if os.path.getsize(json_file) > 0:  # 检查文件是否为空
         with open(json_file, 'r') as f:
-            data = json.load(f)
-            ser.write(json.dumps(data).encode())
-            print(f"Sent data to {ser.name}， data: {json.dumps(data)}")
+            try:
+                data = json.load(f)
+            except json.JSONDecodeError:
+                print(f"Invalid JSON in {json_file}. Skipping...")
+                return
+
+            if len(data) == 3:  # 检查数据的长度
+                ser.write((json.dumps(data) + '\n').encode())  # 在数据后添加换行符
+                print(f"Sent data to {ser.name}， data: {json.dumps(data)}")
+            else:
+                print(f"Data in {json_file} does not have 3 items. Skipping...")
     else:
         print(f"{json_file} is empty. Skipping...")
 

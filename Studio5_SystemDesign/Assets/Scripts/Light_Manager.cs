@@ -42,38 +42,61 @@ public class Light_Manager : MonosingletonTemp<Light_Manager>
     // Update is called once per frame
     void Update()
     {
-
         switch (m_currentMode)
         {
             case LightMode.Manual:
+                lightStripUseGradient = false;
                 AdjustAllLights();
                 AdjustAllLightStrips();
                 break;
             case LightMode.FocusMode:
-                // 在FocusMode模式下，将所有灯的颜色设置为蓝色，强度设置为50000
+                lightStripUseGradient = false;
                 SetAllLights(Color.blue, 50000);
-                SetAllLightStrips(Color.blue, 20f, false);
+                SetAllLightStrips(Color.blue, lightStripEmissionIntensity, false);
                 break;
             case LightMode.ExcitingMode:
-                // 在ExcitingMode模式下，将所有灯的颜色设置为红色，强度设置为70000
+                lightStripUseGradient = false;
                 SetAllLights(Color.red, 70000);
-                SetAllLightStrips(Color.red, 25f, true);
+                SetAllLightStrips(Color.red, lightStripEmissionIntensity, true);
                 break;
             case LightMode.Flashing:
-                // 在Flashing模式下，将所有灯的颜色设置为白色，强度设置为30000
+                lightStripUseGradient = false;
                 SetAllLights(Color.white, 30000);
-                SetAllLightStrips(Color.white, 15f, false);
+                SetAllLightStrips(Color.white, lightStripEmissionIntensity, false);
                 break;
             case LightMode.Breathing:
-                // 在Breathing模式下，将所有灯的颜色设置为绿色，强度设置为40000
-                SetAllLights(Color.green, 40000);
-                SetAllLightStrips(Color.green, 18f, true);
+                lightStripUseGradient = true;
+                SetAllLights(Color.blue, 40000);
+                UpdateLightStrip();
                 break;
         }
+
+
+        SetLightStripUseGradient();
+
 
         UpdateText();
     }
 
+    
+    //Update地获取Lightstrip的状态，获取lightstrip.m_color并且write to json
+    void UpdateLightStrip()
+    {
+        foreach (var lightStrip in lightStripList)
+        {
+            WriteLightColorToJson(lightStrip.m_colortodeliver);
+        }
+    }
+    
+    //如果lightStripUseGradient为true，那么将所有的灯带的useGradient设置为true
+    void SetLightStripUseGradient()
+    {
+        foreach (var lightStrip in lightStripList)
+        {
+            lightStrip.useGradient = lightStripUseGradient;
+        }
+    }
+    
     void AdjustAllLights()
     {
         foreach (var light in lightList)
@@ -132,10 +155,10 @@ public class Light_Manager : MonosingletonTemp<Light_Manager>
         }
         
         // Convert the color to a format that can be written to JSON
-        //先映射成0,255，并且round一下，再赋值
+        //先映射成0,255，并且round一下，再赋值 
         m_outputdata.r = Mathf.Round(datalightStripColor.r * 255);
-        m_outputdata.g = Mathf.Round(datalightStripColor.g * 255);
-        m_outputdata.b = Mathf.Round(datalightStripColor.b * 255);
+        m_outputdata.b = Mathf.Round(datalightStripColor.g * 255);
+        m_outputdata.g = Mathf.Round(datalightStripColor.b * 255);
 
     
 

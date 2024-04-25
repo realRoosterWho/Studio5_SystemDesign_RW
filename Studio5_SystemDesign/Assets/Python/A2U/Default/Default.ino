@@ -1,14 +1,12 @@
 #include <Wire.h>
 #include <FastLED.h>
-#include <Arduino_JSON.h>
+#include <Arduino_JSON.h> // Include JSON library for parsing JSON data
 #include <SPI.h>
 #include <SD.h>
 
 #define NUM_LEDS 9
 #define DATA_PIN 7
 CRGB leds[NUM_LEDS];
-CRGB white(255, 255, 255);
-CRGB blue(0, 0, 255);
 
 #define ACCEL_CONFIG 1
 #define GYRO_CONFIG 1
@@ -36,10 +34,22 @@ void setup() {
     pinMode(joy_y, INPUT);
     FastLED.setBrightness(100);
     FastLED.addLeds<WS2811, DATA_PIN, RGB>(leds, NUM_LEDS);
-    allLight(white);
 }
 
 void loop() {
+    if (Serial.available() > 0) {
+        // Try parsing as long as there is data to read
+        String jsonData = Serial.readStringUntil('\n');
+        JSONVar myObject = JSON.parse(jsonData);
+
+        if (JSON.typeof(myObject) != "undefined") {
+            int red = (int) myObject["r"];
+            int green = (int) myObject["g"];
+            int blue = (int) myObject["b"];
+            allLight(CRGB(red, green, blue));
+        }
+    }
+
     Get_Value(); // Get MPU6050 sensor data
 
     // Joystick and button data
@@ -72,9 +82,7 @@ void loop() {
     Serial.print(val_seven[5]); Serial.print(","); // gyr_y
     Serial.println(val_seven[6]); // gyr_z
 
-    allLight(white);
     delay(100);
-    allLight(blue);
 }
 
 void allLight(CRGB color) {
