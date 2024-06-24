@@ -4,8 +4,13 @@ using UnityEngine;
 
 public class CameraLogic : MonoBehaviour
 {
-    private Vector3 currentRotation;
-    private Vector3 initialRotation;
+    public Vector3 currentRotation;
+    public Vector3 initialRotation;
+    public Vector3 targetRotation; // 新增：目标旋转
+    
+    public float timer = 0f; // 新增：计时器
+    public float timeLimit = 2f; // 新增：时间限制
+
 
     [SerializeField]
     private Vector3 axisMapping = new Vector3(1, 2, 3); // 1 for x, 2 for y, 3 for z
@@ -41,6 +46,8 @@ public class CameraLogic : MonoBehaviour
     {
         currentRotation = transform.rotation.eulerAngles;
         initialRotation = currentRotation;
+        targetRotation = currentRotation; // 初始化目标旋转为当前旋转
+
 
 		//锁定鼠标
         Cursor.lockState = CursorLockMode.Locked;
@@ -53,38 +60,71 @@ public class CameraLogic : MonoBehaviour
     {
         
         // 从 InputHandler 获取输入数据
-        InputData data = InputHandler.Instance.GetInputData();
 
+
+        switch (ControlModeManager.Instance.m_controlMode)
+        {
+            case ControlMode.Free:
+                FreeMode();
+                break;
+            case ControlMode.Dialogue:
+                DialogueMode();
+                break;
+            
+        }
+
+
+    }
+
+    private void FreeMode()
+    {
+        InputData data = InputHandler.Instance.GetInputData();
         // 如果按下扳机键，回到初始角度
         if (data != null && data.Trigger == 1.0)
         {
-            currentRotation = initialRotation;
+            targetRotation = initialRotation;
         }
         // 如果数据不为 null，调整摄像机的旋转
         else if (data != null && !isLocked && (Mathf.Abs(data.gyr_x) > gyroThreshold || Mathf.Abs(data.gyr_y) > gyroThreshold || Mathf.Abs(data.gyr_z) > gyroThreshold))
         {
             // 使用陀螺仪的数据来调整摄像机的旋转
             Vector3 gyroData = new Vector3(data.gyr_x, data.gyr_y, data.gyr_z);
-            currentRotation.x += (invertX ? -1 : 1) * gyroData[(int)axisMapping.x - 1] * Time.deltaTime;
-            currentRotation.y += (invertY ? -1 : 1) * gyroData[(int)axisMapping.y - 1] * Time.deltaTime;
-            currentRotation.z += (invertZ ? -1 : 1) * gyroData[(int)axisMapping.z - 1] * Time.deltaTime;
+            targetRotation.x += (invertX ? -1 : 1) * gyroData[(int)axisMapping.x - 1] * Time.deltaTime;
+            targetRotation.y += (invertY ? -1 : 1) * gyroData[(int)axisMapping.y - 1] * Time.deltaTime;
+            targetRotation.z += (invertZ ? -1 : 1) * gyroData[(int)axisMapping.z - 1] * Time.deltaTime;
 
             // 限制头部旋转在-10度到10度之间
-            currentRotation.z = Mathf.Clamp(currentRotation.z, -10f, 10f);
+            targetRotation.z = Mathf.Clamp(targetRotation.z, -10f, 10f);
+            targetRotation.x = Mathf.Clamp(targetRotation.x, -20f, 20f);
+            targetRotation.y = Mathf.Clamp(targetRotation.y, -50f, 50f);
+            
+            timer = 0f; // 重置计时器
+
         }
         else
         {
-            // 如果没有输入数据，慢慢地回复到初始角度
-            currentRotation = Vector3.Lerp(currentRotation, initialRotation, recoverySpeed * Time.deltaTime);
+            // 如果没有输入数据，开始计时
+            timer += Time.deltaTime;
+
+            // 如果计时器超过两秒，慢慢地回复到初始角度
+            if (timer >= timeLimit)
+            {
+                targetRotation = initialRotation;
+            }
         }
+
+        // 使用 Vector3.Lerp 平滑地过渡到目标旋转
+        currentRotation = Vector3.Lerp(currentRotation, targetRotation, recoverySpeed * Time.deltaTime);
 
         transform.rotation = Quaternion.Euler(currentRotation);
+    }
 
-        // 如果启用了移动，根据遥感的x, y来完成前进后退和左右移动
-        if (enableMovement && data != null)
-        {
-            Vector3 direction = new Vector3(data.x, 0, data.y);
-            transform.Translate(direction * Time.deltaTime * movementSpeed, Space.Self);
-        }
+    private void DialogueMode()
+    {
+        targetRotation = initialRotation;
+        // 使用 Vector3.Lerp 平滑地过渡到目标旋转
+        currentRotation = Vector3.Lerp(currentRotation, targetRotation, recoverySpeed * Time.deltaTime);
+
+        transform.rotation = Quaternion.Euler(currentRotation);
     }
 }

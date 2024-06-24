@@ -4,13 +4,34 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="059937b2-bef8-4f42-8c0c-cb02b91aae76" name="Changes" comment="light strip serial out okay">
-      <change beforePath="$PROJECT_DIR$/Assets/Python/data.json" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Python/data.json" afterDir="false" />
+    <list default="true" id="059937b2-bef8-4f42-8c0c-cb02b91aae76" name="Changes" comment="midterm commit2">
+      <change afterPath="$PROJECT_DIR$/Assets/Python/Receiver_.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/Studio5_SystemDesign.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/Studio5_SystemDesign.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Python/data.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Python/data_out.json" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Python/data_out.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/SampleScene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/SampleScene.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/displayscenes/Game2_Flower.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/displayscenes/Game2_Flower.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/CameraLogic.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/CameraLogic.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/InputHandler.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/InputHandler.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Light_Manager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Light_Manager.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FlaskConsoleOptions" custom-start-script="import sys&#10;sys.path.extend([WORKING_DIR_AND_PYTHON_PATHS])&#10;from flask.cli import ScriptInfo&#10;locals().update(ScriptInfo(create_app=None).load_app().make_shell_context())&#10;print(&quot;Python %s on %s\nApp: %s [%s]\nInstance: %s&quot; % (sys.version, sys.platform, app.import_name, app.env, app.instance_path))">
+    <envs>
+      <env key="FLASK_APP" value="app" />
+    </envs>
+    <option name="myCustomStartScript" value="import sys&#10;sys.path.extend([WORKING_DIR_AND_PYTHON_PATHS])&#10;from flask.cli import ScriptInfo&#10;locals().update(ScriptInfo(create_app=None).load_app().make_shell_context())&#10;print(&quot;Python %s on %s\nApp: %s [%s]\nInstance: %s&quot; % (sys.version, sys.platform, app.import_name, app.env, app.instance_path))" />
+    <option name="myEnvs">
+      <map>
+        <entry key="FLASK_APP" value="app" />
+      </map>
+    </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
@@ -25,6 +46,9 @@
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
+    "Python.Receiver.executor": "Run",
+    "Python.Receiver_.executor": "Run",
+    "Python.Sender.executor": "Run",
     "Python.Serial2Json.executor": "Run",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
@@ -35,6 +59,7 @@
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
+    "settings.editor.selected.configurable": "preferences.pluginManager",
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
@@ -64,7 +89,15 @@
       <workItem from="1712317298642" duration="638000" />
       <workItem from="1712411091634" duration="3419000" />
       <workItem from="1712477015342" duration="2312000" />
-      <workItem from="1713972682817" duration="11552000" />
+      <workItem from="1713972682817" duration="11634000" />
+      <workItem from="1714077323011" duration="1853000" />
+      <workItem from="1714120467302" duration="770000" />
+      <workItem from="1719243997057" duration="1226000" />
+      <workItem from="1719245458609" duration="294000" />
+      <workItem from="1719245924329" duration="339000" />
+      <workItem from="1719246519091" duration="2915000" />
+      <workItem from="1719249819740" duration="487000" />
+      <workItem from="1719250425853" duration="4697000" />
     </task>
     <task id="LOCAL-00001" summary="project before import">
       <option name="closed" value="true" />
@@ -74,7 +107,15 @@
       <option name="project" value="LOCAL" />
       <updated>1714051625068</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="midterm commit2">
+      <option name="closed" value="true" />
+      <created>1714062870112</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1714062870112</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -83,9 +124,24 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="light strip serial out okay" />
     <MESSAGE value="project before import" />
-    <option name="LAST_COMMIT_MESSAGE" value="project before import" />
+    <MESSAGE value="midterm commit2" />
+    <option name="LAST_COMMIT_MESSAGE" value="midterm commit2" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/Assets/Python/Sender.py</url>
+          <line>11</line>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/Studio5_SystemDesign$Serial2Json.coverage" NAME="Serial2Json Coverage Results" MODIFIED="1714062412352" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Assets/Python" />
+    <SUITE FILE_PATH="coverage/Receiver_py$Sender.coverage" NAME="Sender Coverage Results" MODIFIED="1719251926403" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Assets/Python" />
+    <SUITE FILE_PATH="coverage/Receiver_py$Receiver_.coverage" NAME="Receiver_ Coverage Results" MODIFIED="1719251999417" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Assets/Python" />
+    <SUITE FILE_PATH="coverage/Receiver_py$Receiver.coverage" NAME="Receiver Coverage Results" MODIFIED="1719255020602" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Assets/Python" />
+    <SUITE FILE_PATH="coverage/Studio5_SystemDesign$Serial2Json.coverage" NAME="Serial2Json Coverage Results" MODIFIED="1714120524952" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Assets/Python" />
   </component>
 </project>

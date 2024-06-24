@@ -74,8 +74,6 @@ public class Light_Manager : MonosingletonTemp<Light_Manager>
 
 
         SetLightStripUseGradient();
-
-
         UpdateText();
     }
 

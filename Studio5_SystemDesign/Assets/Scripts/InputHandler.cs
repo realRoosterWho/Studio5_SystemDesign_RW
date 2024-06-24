@@ -21,6 +21,12 @@ public class InputData
     public float gyr_x;
     public float gyr_y;
     public float gyr_z;
+    public float TEMP;
+    public int knob_mode;
+    public int knob_bar_spring;
+    public int knob_trigger_spring;
+    public int knob_selection;
+    public int knob_bar_smooth;
 }
 
 public class OutputData
@@ -32,6 +38,7 @@ public class OutputData
 
 public class InputHandler : MonosingletonTemp<InputHandler>
 {
+    [SerializeField] private InputData m_inputData;
     // Start is called before the first frame update
     void Start()
     {
@@ -41,7 +48,8 @@ public class InputHandler : MonosingletonTemp<InputHandler>
     // Update is called once per frame
     void Update()
     {
-
+        //用GetInputData更新m_inputData
+        m_inputData = GetInputData();
     }
 
     public InputData GetInputData()
@@ -49,12 +57,12 @@ public class InputHandler : MonosingletonTemp<InputHandler>
         //读取json
         string json = File.ReadAllText(Application.dataPath + "/Python/data.json");
         Debug.Log(json);
-        //解析json。其结构为：{"x": 5.0, "y": -13.0, "z": 0.0, "Trigger": 0.0, "Menu": 0.0, "Down": 0.0, "Up": 0.0, "Grip": 0.0, "acc_x": -4.03, "acc_y": -9.02, "acc_z": 8.19, "temp": 29.19, "gyr_x": 0.07, "gyr_y": -1.35, "gyr_z": 2.59}
+        //解析json。其结构为：{"x": 5.0, "y": -13.0, "z": 0.0, "Trigger": 0.0, "Menu": 0.0, "Down": 0.0, "Up": 0.0, "Grip": 0.0, "acc_x": -4.03, "acc_y": -9.02, "acc_z": 8.19, "temp": 29.19, "gyr_x": 0.07, "gyr_y": -1.35, "gyr_z": 2.59, "TEMP": 31.35, "knob_mode": 3, "knob_bar_spring": 0, "knob_trigger_spring": null, "knob_selection": 0, "knob_bar_smooth": 0}
         //如果为空，不解析，否则解析
         if (json != "")
         {
             InputData data = JsonUtility.FromJson<InputData>(json);
-            Debug.Log(data);
+            //Debug.Log(data);
             return data;
         }
         else
