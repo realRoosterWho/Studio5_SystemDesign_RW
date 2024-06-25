@@ -25,7 +25,6 @@ public class deathzone_Logic : MonoBehaviour
             other.gameObject.GetComponent<PlayerLogic>().ResetPlayerPosition();
             
             //触发事件CoinRemake
-            EventManager.Instance.TriggerEvent("CoinRemake");
             //重新加载场景，不要调用Scemanager，直接重新加载场景
             // Application.LoadLevel(Application.loadedLevel);
             

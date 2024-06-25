@@ -70,7 +70,6 @@ public class CameraLogic : MonoBehaviour
             case ControlMode.Dialogue:
                 DialogueMode();
                 break;
-            
         }
 
 

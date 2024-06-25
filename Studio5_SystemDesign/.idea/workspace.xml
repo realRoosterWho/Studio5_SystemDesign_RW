@@ -5,17 +5,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="059937b2-bef8-4f42-8c0c-cb02b91aae76" name="Changes" comment="midterm commit2">
-      <change afterPath="$PROJECT_DIR$/Assets/Python/Receiver_.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/Studio5_SystemDesign.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/Studio5_SystemDesign.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Python/data.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Python/data_out.json" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Python/data_out.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Python/data.json" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Python/data.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scenes/SampleScene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/SampleScene.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/displayscenes/Game2_Flower.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/displayscenes/Game2_Flower.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/CameraLogic.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/CameraLogic.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/InputHandler.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/InputHandler.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Light_Manager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Light_Manager.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/CameraRaycast.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/CameraRaycast.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/EventManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/EventManager.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Monosingletontemp.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Monosingletontemp.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/deathzone_Logic.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/deathzone_Logic.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/TagManager.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/TagManager.asset" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -97,7 +94,7 @@
       <workItem from="1719245924329" duration="339000" />
       <workItem from="1719246519091" duration="2915000" />
       <workItem from="1719249819740" duration="487000" />
-      <workItem from="1719250425853" duration="4697000" />
+      <workItem from="1719250425853" duration="5812000" />
     </task>
     <task id="LOCAL-00001" summary="project before import">
       <option name="closed" value="true" />

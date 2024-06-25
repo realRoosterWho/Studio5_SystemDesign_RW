@@ -50,7 +50,7 @@ public class EventManager : MonosingletonTemp<EventManager>
             thisEvent += listener;
             eventDictionary.Add(eventName, thisEvent);
         }
-		ExportEventList();
+		// ExportEventList();
     }
 
     public void RemoveEvent(string eventName, Action<GameEventArgs> listener)
@@ -66,12 +66,24 @@ public class EventManager : MonosingletonTemp<EventManager>
         }
     }
 
-    public void TriggerEvent(string eventName, GameEventArgs eventArgs = null)
+    public void TriggerEvent(string eventName, GameEventArgs eventArgs)
     {
         Action<GameEventArgs> thisEvent = null;
         if (eventDictionary.TryGetValue(eventName, out thisEvent))
         {
-            thisEvent.Invoke(eventArgs);
+            // 在调用事件之前，检查每个监听器是否仍然存在
+            foreach (var listener in thisEvent.GetInvocationList())
+            {
+                if (listener.Target != null)
+                {
+                    ((Action<GameEventArgs>)listener)(eventArgs);
+                }
+                else
+                {
+                    // 如果监听器已经被销毁，那么从事件中移除它
+                    thisEvent -= (Action<GameEventArgs>)listener;
+                }
+            }
         }
     }
 
@@ -90,8 +102,8 @@ public class EventManager : MonosingletonTemp<EventManager>
 
             sb.AppendLine();
         }
-        Debug.Log("Exported Event List");
-        System.IO.File.WriteAllText("Assets/Scripts/EventList.txt", sb.ToString());
+        // Debug.Log("Exported Event List");
+        // System.IO.File.WriteAllText("Assets/Scripts/EventList.txt", sb.ToString());
     }
 }
 

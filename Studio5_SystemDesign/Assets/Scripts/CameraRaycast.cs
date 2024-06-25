@@ -23,8 +23,12 @@ public class CameraRaycast : MonoBehaviour
         // 如果射线碰到了物体
         if (Physics.Raycast(ray, out hit))
         {
+            //如果碰撞到的物体带有 "Cursor" 标签，直接返回
+            if (!hit.collider.gameObject.CompareTag("Cursor"))
+            {
+                m_Cursor.transform.position = hit.point;
+            }
             // 将 m_Cursor 的位置设置为碰撞点的位置
-            m_Cursor.transform.position = hit.point;
         }
     }
 }
