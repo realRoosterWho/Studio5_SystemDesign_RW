@@ -8,6 +8,7 @@ TagManager:
   - PlayerCar
   - AICarCollider
   - AJ
+  - Cursor
   layers:
   - Default
   - TransparentFX

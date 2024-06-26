@@ -1,7 +1,6 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Video;
+using UnityEngine.SceneManagement;
 
 public class VideoPlayerManager : MonoBehaviour
 {
@@ -13,7 +12,8 @@ public class VideoPlayerManager : MonoBehaviour
     void Start()
     {
         videoPlayer = GetComponent<VideoPlayer>();
-        videoPlayer.isLooping = true;
+        videoPlayer.isLooping = false; // 确保视频不会循环播放
+        videoPlayer.loopPointReached += OnVideoEnded; // 添加视频结束事件的监听器
         inputHandler = InputHandler.Instance;
         lastResetTime = -2f; // Initialize to a value that allows immediate reset
     }
@@ -37,5 +37,12 @@ public class VideoPlayerManager : MonoBehaviour
                 Debug.Log("Cannot play video because videoPlayer is null");
             }
         }
+    }
+
+    // 当视频播放结束时调用
+    void OnVideoEnded(VideoPlayer vp)
+    {
+        // 重新加载当前场景
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 }
