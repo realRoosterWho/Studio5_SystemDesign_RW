@@ -29,11 +29,11 @@ public class CollisionDetermineBoxLogic : MonoBehaviour
     private void FreeMode()
     {
         //如果isCursorIn为true，并且Trigger键被按下，进入DIalogueMode
-        if (isCursorIn && InputHandler.Instance.m_Trigger)
+        if (isCursorIn && InputHandler.Instance.GetInputData().knob_trigger_spring == 1.0)
         {
             ControlModeManager.Instance.m_controlMode = ControlMode.Dialogue;
 			//用DialogueCardManager唤起问题1
-			    StartCoroutine(DialogueCardManager.Instance.DisplayCard(DialogueCardManager.Instance.m_cardNumber));
+			StartCoroutine(DialogueCardManager.Instance.DisplayCard(DialogueCardManager.Instance.m_cardNumber));
         }
     }
 

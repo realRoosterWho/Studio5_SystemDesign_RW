@@ -5,20 +5,27 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="059937b2-bef8-4f42-8c0c-cb02b91aae76" name="Changes" comment="midterm commit2">
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/DialogueCardManager.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/DialogueCardManager.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Charge_DynamicLogic.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Charge_DynamicLogic.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/CursorLogic.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/CursorLogic.cs.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Material/box.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Material/box.mat" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Python/Sender.py" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Python/Sender.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Python/data.json" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Python/data.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Python/data_out.json" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Python/data_out.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scenes/SampleScene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/SampleScene.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/CardList.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/CardList.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/CollisionDetermineBoxLogic.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/CollisionDetermineBoxLogic.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/ControlModeManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/ControlModeManager.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/InputHandler.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/InputHandler.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/VideoPlayerManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/VideoPlayerManager.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/EditorBuildSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/EditorBuildSettings.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/DialogueCardManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/DialogueCardManager.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/CardList/Answer1_1.png" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Sprites/CardList/Answer1_1.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/CardList/Answer1_2.png" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Sprites/CardList/Answer1_2.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/CardList/Selection1_1.png" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Sprites/CardList/Selection1_1.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/CardList/Selection1_2.png" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Sprites/CardList/Selection1_2.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/UIStatic/StaticBG.png" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Sprites/UIStatic/StaticBG.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Packages/manifest.json" beforeDir="false" afterPath="$PROJECT_DIR$/Packages/manifest.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Packages/packages-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/Packages/packages-lock.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ProjectSettings/GraphicsSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/GraphicsSettings.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/ProjectSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/ProjectSettings.asset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ProjectSettings/TagManager.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/TagManager.asset" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -54,6 +61,7 @@
     &quot;Python.Receiver_.executor&quot;: &quot;Run&quot;,
     &quot;Python.Sender.executor&quot;: &quot;Run&quot;,
     &quot;Python.Serial2Json.executor&quot;: &quot;Run&quot;,
+    &quot;Python.serialposix.executor&quot;: &quot;Run&quot;,
     &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;git-widget-placeholder&quot;: &quot;main&quot;,
@@ -102,7 +110,8 @@
       <workItem from="1719246519091" duration="2915000" />
       <workItem from="1719249819740" duration="487000" />
       <workItem from="1719250425853" duration="24666000" />
-      <workItem from="1719319687027" duration="6740000" />
+      <workItem from="1719319687027" duration="9898000" />
+      <workItem from="1719496399529" duration="208000" />
     </task>
     <task id="LOCAL-00001" summary="project before import">
       <option name="closed" value="true" />
@@ -144,8 +153,9 @@
     </breakpoint-manager>
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/Receiver_py$Sender.coverage" NAME="Sender Coverage Results" MODIFIED="1719422313583" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Assets/Python" />
-    <SUITE FILE_PATH="coverage/Receiver_py$Receiver_.coverage" NAME="Receiver_ Coverage Results" MODIFIED="1719319448053" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Assets/Python" />
+    <SUITE FILE_PATH="coverage/Receiver_py$Sender.coverage" NAME="Sender Coverage Results" MODIFIED="1719495745912" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Assets/Python" />
+    <SUITE FILE_PATH="coverage/Receiver_py$serialposix.coverage" NAME="serialposix Coverage Results" MODIFIED="1719495739269" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/../../../../Anaconda/anaconda3/envs/studio5_A2U/lib/python3.11/site-packages/serial" />
+    <SUITE FILE_PATH="coverage/Receiver_py$Receiver_.coverage" NAME="Receiver_ Coverage Results" MODIFIED="1719496490567" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Assets/Python" />
     <SUITE FILE_PATH="coverage/Receiver_py$Receiver.coverage" NAME="Receiver Coverage Results" MODIFIED="1719405684576" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Assets/Python" />
     <SUITE FILE_PATH="coverage/Studio5_SystemDesign$Serial2Json.coverage" NAME="Serial2Json Coverage Results" MODIFIED="1714120524952" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Assets/Python" />
   </component>
