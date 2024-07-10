@@ -1,8 +1,8 @@
 import socket
 import json
-import struct
 import math
 from PIL import Image
+import io
 
 
 class UDPSender:
@@ -10,7 +10,6 @@ class UDPSender:
         self.server_ip = server_ip
         self.server_port = server_port
         self.chunk_size = 8192
-        self.header_size = 4
 
     def send_message(self, message):
         data = message.encode()
@@ -23,8 +22,10 @@ class UDPSender:
         self._send_data_with_header(header, json_data)
 
     def send_image(self, image_path):
-        image = Image.open(image_path)
-        image_data = image.tobytes()
+        with Image.open(image_path) as img:
+            img_byte_arr = io.BytesIO()
+            img.save(img_byte_arr, format='PNG')
+            image_data = img_byte_arr.getvalue()
         header = 'IMAG'.encode()
         self._send_data_with_header(header, image_data)
 
@@ -56,4 +57,4 @@ if __name__ == "__main__":
     sender.send_message("Hello from Python!")
     sample_dict = {"key1": "value1", "key2": "value2"}
     sender.send_json(sample_dict)
-    sender.send_image('path_to_image.png')
+    sender.send_image("/Volumes/Rooster_SSD/_Unity_Projects/Studio5/Studio5_SystemDesign_RW/Studio5_SystemDesign/Assets/StreamingAssets/receiver_test/path_to_image.png")
