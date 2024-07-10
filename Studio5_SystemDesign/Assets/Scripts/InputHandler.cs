@@ -90,35 +90,29 @@ public class InputHandler : MonosingletonTemp<InputHandler>
 		}
     }
 
-    public InputData GetInputData()
+public InputData GetInputData()
+{
+    //读取json
+    string json = File.ReadAllText(Application.dataPath + "/StreamingAssets/data.json");
+    //解析json
+    if (json != "")
     {
-        //读取json
-        string json = File.ReadAllText(Application.dataPath + "/Python/data.json");
-        // Debug.Log(json);
-        //解析json。其结构为：{"x": 5.0, "y": -13.0, "z": 0.0, "Trigger": 0.0, "Menu": 0.0, "Down": 0.0, "Up": 0.0, "Grip": 0.0, "acc_x": -4.03, "acc_y": -9.02, "acc_z": 8.19, "temp": 29.19, "gyr_x": 0.07, "gyr_y": -1.35, "gyr_z": 2.59, "TEMP": 31.35, "knob_mode": 3, "knob_bar_spring": 0, "knob_trigger_spring": null, "knob_selection": 0, "knob_bar_smooth": 0}
-        //如果为空，不解析，否则解析
-        if (json != "")
-        {
-            InputData data = JsonUtility.FromJson<InputData>(json);
-            //Debug.Log(data);
-            return data;
-        }
-        else
-        {
-            return null;
-        }
+        InputData data = JsonUtility.FromJson<InputData>(json);
+        return data;
     }
+    else
+    {
+        return null;
+    }
+}
     
-    //写一个函数，用于将收到的数据写入文件，写到Application.dataPath + "/Python/data_out.json"里面
-    public void WriteData(OutputData data)
-    {
-        // Convert the OutputData object to a JSON string
-        string json = JsonUtility.ToJson(data);
-        //Debug
-        // Debug.Log(json);
-        // Call the WriteData method from the InputHandler class to write the JSON string to a file
-        File.WriteAllText(Application.dataPath + "/Python/data_out.json", json);
-    }
+public void WriteData(OutputData data)
+{
+    // Convert the OutputData object to a JSON string
+    string json = JsonUtility.ToJson(data);
+    // Write the JSON string to a file
+    File.WriteAllText(Application.dataPath + "/StreamingAssets/data_out.json", json);
+}
     
     //public OutputData
     
